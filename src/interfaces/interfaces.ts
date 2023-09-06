@@ -15,5 +15,8 @@ export type AccountantResponseType = {
     results: AccountantType[];
     info: {
       page: number;
+      results: number;
     };
+    isLoading: boolean,
+    errors: ''
 };

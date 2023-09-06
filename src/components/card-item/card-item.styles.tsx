@@ -4,7 +4,8 @@ import { styled } from "styled-components";
 export const CardItemHeader = styled(CardHeader)`
                             
                             padding: 24px !important;
-
+                            padding-right: 0 !important;
+                            
                             .MuiCardHeader-content {
                                 display: flex;
                                 flex-direction: column-reverse;
