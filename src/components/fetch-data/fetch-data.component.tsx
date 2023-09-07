@@ -12,7 +12,7 @@ const FetchData = () => {
     }
 
     useEffect(() => {
-        dispatch(loadAccountantsAction())
+        dispatch(loadAccountantsAction());
     }, [dispatch]);
 
     return (

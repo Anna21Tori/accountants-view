@@ -4,7 +4,7 @@ import { AccountantResponseType, AccountantType } from '../../types/types';
 export const ACCOUNTANTS_INITIAL_STATE: AccountantResponseType = {
     results: [],
     info: {
-        page: 1,
+        page: 0,
         results: 4,
     },
     isLoading: false,

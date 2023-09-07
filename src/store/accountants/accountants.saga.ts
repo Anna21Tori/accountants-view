@@ -13,7 +13,7 @@ function* loadAccountantsSaga() {
 
     const url = `https://randomuser.me/api/?page=${info.page}&results=${info.results}&gender=female`;
 
-    const response: AxiosResponse<Omit<AccountantResponseType, "isLoading" | "errors">> = yield axios.get(url);
+    const response: AxiosResponse<Omit<AccountantResponseType, "isLoading" | "errors">> = yield axios.get(url, {headers:  {"Content-Type": "application/json"}});
 
     yield put(loadAccountantsSuccessAction(response.data.results));
 
