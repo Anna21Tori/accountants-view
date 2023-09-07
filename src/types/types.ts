@@ -18,5 +18,5 @@ export type AccountantResponseType = {
       results: number;
     };
     isLoading: boolean,
-    errors: ''
+    error: Error
 };

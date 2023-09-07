@@ -1,3 +1,9 @@
 .logo {
   width: 146px;
 }
+
+.main-spinner {
+  position: fixed;
+  top: calc(50vh - 20px);
+  left: calc(50vw - 20px);
+}

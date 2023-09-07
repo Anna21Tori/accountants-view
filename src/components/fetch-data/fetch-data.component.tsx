@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import CustomButton from "../button/custom-button.component"
 import { loadAccountantsAction } from "../../store/accountants/accountants.reducer";
+import { FetchWrapper } from "./fetch-data.style";
 
 const FetchData = () => {
     const dispatch = useDispatch();
@@ -9,10 +11,14 @@ const FetchData = () => {
         dispatch(loadAccountantsAction());
     }
 
+    useEffect(() => {
+        dispatch(loadAccountantsAction())
+    }, [dispatch]);
+
     return (
-        <div style={{display:"flex", justifyContent:"center", alignItems:"center"}} >
-            <CustomButton onClick={handleOnClick}>Pokaz wiecej ksiegowych</CustomButton>
-        </div>
+        <FetchWrapper>
+            <CustomButton onClick={handleOnClick}>Pokaż więcej</CustomButton>
+        </FetchWrapper>
     )
 }
 export default FetchData;

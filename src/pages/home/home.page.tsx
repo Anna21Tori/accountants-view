@@ -1,8 +1,7 @@
 import { Container } from "@mui/material";
-import Cards from "../../components/cards/cards.component";
 import { Content } from "./home.style";
 import Logo from "../../components/logo/logo.component";
-import FetchData from "../../components/fetch-data/fetch-data.component";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
 
@@ -10,8 +9,7 @@ const Home = () => {
         <Container maxWidth="xl">
             <Content direction="column">
                 <Logo />
-                <Cards />
-                <FetchData />
+                <Outlet />
             </Content>
         </Container>
         

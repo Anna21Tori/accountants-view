@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { AccountantResponseType } from '../../interfaces/interfaces';
+import { AccountantResponseType, AccountantType } from '../../types/types';
 
 export const ACCOUNTANTS_INITIAL_STATE: AccountantResponseType = {
     results: [],
@@ -8,7 +8,7 @@ export const ACCOUNTANTS_INITIAL_STATE: AccountantResponseType = {
         results: 4,
     },
     isLoading: false,
-    errors: ''
+    error: {} as Error
 }
 
 export const accountantsSlice = createSlice({
@@ -17,17 +17,16 @@ export const accountantsSlice = createSlice({
   reducers: {
     loadAccountantsAction: (state: AccountantResponseType) => {
         state.isLoading = true;
-        state.errors = '';
+        state.error = {} as Error
         state.info = {results: state.info.results, page: state.info.page + 1}
       },
-    loadAccountantsSuccessAction: (state: AccountantResponseType, {payload}: PayloadAction<Omit<AccountantResponseType, "isLoading" | "errors">>) => {
+    loadAccountantsSuccessAction: (state: AccountantResponseType, {payload}: PayloadAction<AccountantType[]>) => {
         state.isLoading = false;
-        state.results.push(...payload.results);
-        state.info = payload.info;
+        state.results.push(...payload);
       },
-    loadAccountantsErrorAction: (state: AccountantResponseType) => {
+    loadAccountantsErrorAction: (state: AccountantResponseType, {payload}: PayloadAction<Error>) => {
         state.isLoading = false;
-        // state.errors = "error";
+        state.error = payload;
       },
   },
 });

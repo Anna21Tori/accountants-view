@@ -13,6 +13,7 @@ export interface ICardItemDetailsProps extends React.HTMLAttributes<HTMLDivEleme
 }
 const CardItemDetails = memo((props: ICardItemDetailsProps) => {
     const {title, value, type, children} = props;
+    
     return (
         <DetailsContainer $type={type ? type : DetailsType.DEFAULT}>
             <p className="title">{title}</p>

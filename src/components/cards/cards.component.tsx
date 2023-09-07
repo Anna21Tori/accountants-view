@@ -9,7 +9,7 @@ const Cards = () => {
     const accountants = useSelector(selectAccountants);
     const isLoading = useSelector(selectIsLoading);
     const infoResults = useSelector(selectInfoResults);
-
+    
     const skeletonItems = useCallback(() => {
         const items: JSX.Element[] = [];
         for(let i = 0; i < infoResults; i ++){
